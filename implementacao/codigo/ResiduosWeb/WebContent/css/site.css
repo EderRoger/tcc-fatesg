@@ -1,0 +1,159 @@
+.ui-bar-f {
+	border: 1px solid #cccccc;
+	background: #c6e8f2;
+	color: #000000;
+	font-weight: bold;
+	text-shadow: 0 1px 1px #eeeeee;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#c6e8f2),
+		to(#c6e8f2) );
+	background-image: -webkit-linear-gradient(top, #c6e8f2, #c6e8f2);
+	background-image: -moz-linear-gradient(top, #c6e8f2, #c6e8f2);
+	background-image: -ms-linear-gradient(top, #c6e8f2, #c6e8f2);
+	background-image: -o-linear-gradient(top, #c6e8f2, #c6e8f2);
+	background-image: linear-gradient(top, #c6e8f2, #c6e8f2);
+}
+
+.ui-bar-f .ui-link-inherit {
+	color: #000000;
+}
+
+.ui-bar-f .ui-link {
+	color: #7cc4e7;
+	font-weight: bold;
+}
+
+.ui-bar-f .ui-link:hover {
+	color: #2489CE;
+}
+
+.ui-bar-f .ui-link:active {
+	color: #2489CE;
+}
+
+.ui-bar-f .ui-link:visited {
+	color: #2489CE;
+}
+
+.ui-bar-f,.ui-bar-f input,.ui-bar-f select,.ui-bar-f textarea,.ui-bar-f button
+	{
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.ui-body-f,.ui-dialog.ui-overlay-f {
+	border: 1px solid #8C7A65;
+	color: #000000;
+	text-shadow: 0 1px 0 #eeeeee;
+	background: #f8f8f8;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3),
+		to(#f8f8f8) );
+	background-image: -webkit-linear-gradient(top, #f3f3f3, #f8f8f8);
+	background-image: -moz-linear-gradient(top, #f3f3f3, #f8f8f8);
+	background-image: -ms-linear-gradient(top, #f3f3f3, #f8f8f8);
+	background-image: -o-linear-gradient(top, #f3f3f3, #f8f8f8);
+	background-image: linear-gradient(top, #f3f3f3, #f8f8f8);
+}
+
+.ui-body-f,.ui-body-f input,.ui-body-f select,.ui-body-f textarea,.ui-body-f button
+	{
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.ui-body-f .ui-link-inherit {
+	color: #000000;
+}
+
+.ui-body-f .ui-link {
+	color: #2489CE;
+	font-weight: bold;
+}
+
+.ui-body-f .ui-link:hover {
+	color: #2489CE;
+}
+
+.ui-body-f .ui-link:active {
+	color: #2489CE;
+}
+
+.ui-body-f .ui-link:visited {
+	color: #2489CE;
+}
+
+.ui-btn-up-f {
+	border: 1px solid #ccc;
+	background: #ffffff;
+	font-weight: bold;
+	color: #000000;
+	text-shadow: 0 1px 1px #eeeeee;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF),
+		to(#ffffff) );
+	background-image: -webkit-linear-gradient(top, #FFFFFF, #ffffff);
+	background-image: -moz-linear-gradient(top, #FFFFFF, #ffffff);
+	background-image: -ms-linear-gradient(top, #FFFFFF, #ffffff);
+	background-image: -o-linear-gradient(top, #FFFFFF, #ffffff);
+	background-image: linear-gradient(top, #FFFFFF, #ffffff);
+}
+
+.ui-btn-up-f a.ui-link-inherit {
+	color: #000000;
+}
+
+.ui-btn-hover-f {
+	border: 1px solid #bbbbbb;
+	background: #f6f6f6;
+	font-weight: bold;
+	color: #2F3E46;
+	text-shadow: 0 1px 1px #fff;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#F6F6F6),
+		to(#F6F6F6) );
+	background-image: -webkit-linear-gradient(top, #F6F6F6, #F6F6F6);
+	background-image: -moz-linear-gradient(top, #F6F6F6, #F6F6F6);
+	background-image: -ms-linear-gradient(top, #F6F6F6, #F6F6F6);
+	background-image: -o-linear-gradient(top, #F6F6F6, #F6F6F6);
+	background-image: linear-gradient(top, #F6F6F6, #F6F6F6);
+}
+
+.ui-btn-hover-f a.ui-link-inherit {
+	color: #2F3E46;
+}
+
+.ui-btn-down-f {
+	border: 1px solid #808080;
+	background: #fdfdfd;
+	font-weight: bold;
+	color: #2F3E46;
+	text-shadow: 0 1px 1px #ffffff;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#eee),
+		to(#fdfdfd) );
+	background-image: -webkit-linear-gradient(top, #eee, #fdfdfd);
+	background-image: -moz-linear-gradient(top, #eee, #fdfdfd);
+	background-image: -ms-linear-gradient(top, #eee, #fdfdfd);
+	background-image: -o-linear-gradient(top, #eee, #fdfdfd);
+	background-image: linear-gradient(top, #eee, #fdfdfd);
+}
+
+.ui-btn-down-f a.ui-link-inherit {
+	color: #2F3E46;
+}
+
+.ui-btn-up-f,.ui-btn-hover-f,.ui-btn-down-f {
+	font-family: Helvetica, Arial, sans-serif;
+	text-decoration: none;
+}
+
+.ui-li-divider {
+	background: #ffffd5 /*#ffb56b*/
+}
+
+div[data-role='content'] .ui-bar-f {
+	background: #ffffd5 /*#ffb56b*/;
+	font-size: 14px;
+}
+
+#home,#errata,#apesentacao,#pdf {
+	background: #fff;
+}
+
+.ui-header .ui-title {
+	white-space: normal;
+}
