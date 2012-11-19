@@ -37,7 +37,17 @@
                 <input type="hidden" name="acao" value="salvar" />
                 <input type="hidden" name="id" value="${objOfertaProcura.id}" />
                 <input type="hidden" name="id_industria" value="${objUsuarioSS.industria.id}" />
+
+               <div data-role="collapsible" data-theme="a" data-content-theme="a">
+                <h3>Dados da Indústria</h3>
+                <label for="nome">Razão Social:</label> <input type="text" name="nome" disabled="disabled"  value="${objOfertaProcura.industria.nome}"/>
+                <label for="endereco">Endereço:</label> <input type="text" name="endereco" disabled="disabled" value="${objOfertaProcura.industria.endereco}" />
+				<label for="email">E-mail:</label> <input type="email" name="email" disabled="disabled" value="${objOfertaProcura.industria.email}" required/>
+				<label for="txtTelefone">Telefone:</label> <input type="tel" disabled="disabled" name="txtTelefone" value="${objOfertaProcura.industria.telefone}" />
+               </div>
                 
+              
+
 				<label for="id_residuo">Resíduo</label> <select
 						name="id_residuo" id="id_residuo">
 						<c:forEach items="${lstResiduo}" var="item">
@@ -52,9 +62,10 @@
 				<label for="quantidade">Quantidade</label> <input type="number" name="quantidade" value="${objOfertaProcura.quantidade}" />
 					<p style="color:red; margin-top:20px;">${msg}</p>	
 					<div data-role="controlgroup" data-type="horizontal">
-						<input type="submit" name="btnSalvar" id="btnSalvar"
-							data-icon="check" value="Salvar" /> <input type="reset"
-							name="Limpar" id="Limpar" data-icon="delete" value="Limpar" />
+						<c:if test="${objUsuarioSS.industria.id.equals(objOfertaProcura.industria.id)}">
+						<input type="submit" name="btnSalvar" id="btnSalvar" data-icon="check" value="Salvar" />
+						<input type="reset"  name="Limpar" id="Limpar" data-icon="delete" value="Limpar" />
+						</c:if>
 					</div>
 				</div>
 			</form>
