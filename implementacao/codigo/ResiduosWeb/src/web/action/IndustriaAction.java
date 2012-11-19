@@ -20,6 +20,7 @@ import web.util.CriptografiaMD5;
 import web.util.PopulateObject;
 import fatesg.projeto.integrador.dao.AbstractDAO;
 import fatesg.projeto.integrador.entidade.Industria;
+import fatesg.projeto.integrador.entidade.TipoUsuario;
 import fatesg.projeto.integrador.entidade.Usuario;
 
 /**
@@ -110,6 +111,7 @@ public class IndustriaAction implements BusinessLogic {
 		if (!senha.toString().equals(""))
 			usuario.setSenha(CriptografiaMD5.encrypt(senha));
 		usuario.setStatus(true);
+		usuario.setTipoUsuario(1);
 		usuario.setIndustria(industria);
 
 		try {
