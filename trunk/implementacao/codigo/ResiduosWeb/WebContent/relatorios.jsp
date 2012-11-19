@@ -31,7 +31,9 @@
 		</nav>
 		<section data-role="content">
 			<section data-role="content">
+			<c:if test="${objUsuarioSS.tipoUsuario==0}">
 			<a href="servletmain?business=CategoriaAction&acao=listar" data-role="button">Categoria Resíduo</a>
+			</c:if>
 			<a href="servletmain?business=UsuarioAction&acao=listar" data-role="button">Usuario</a>
 			<a href="servletmain?business=ResiduoAction&acao=listar" data-role="button">Resíduo</a>
 			<a href="servletmain?business=OfertaProcuraAction&acao=listar" data-role="button">Oferta Procura</a>
