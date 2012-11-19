@@ -10,7 +10,6 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.jms.Session;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
@@ -20,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import web.controller.BusinessLogic;
 import web.util.PopulateObject;
 import fatesg.projeto.integrador.dao.AbstractDAO;
-import fatesg.projeto.integrador.entidade.Categoria;
 import fatesg.projeto.integrador.entidade.Industria;
 import fatesg.projeto.integrador.entidade.OfertaProcura;
 import fatesg.projeto.integrador.entidade.Residuo;

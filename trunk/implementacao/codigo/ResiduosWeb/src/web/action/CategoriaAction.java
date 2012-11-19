@@ -19,7 +19,6 @@ import web.controller.BusinessLogic;
 import web.util.PopulateObject;
 import fatesg.projeto.integrador.dao.AbstractDAO;
 import fatesg.projeto.integrador.entidade.Categoria;
-import fatesg.projeto.integrador.entidade.Usuario;
 
 /**
  * 
