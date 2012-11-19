@@ -38,6 +38,14 @@
                 <input type="hidden" name="id" value="${objUsuario.id}" />
                 <input type="hidden" name="id_industria" value="${objUsuarioSS.industria.id}" />
                 
+                <div data-role="collapsible" data-theme="a" data-content-theme="a">
+                <h3>Dados da Indústria</h3>
+                <label for="nome">Razão Social:</label> <input type="text" name="nome" value="${objUsuario.industria.nome}" required/>
+				<label for="cnpj">CNPJ:</label> <input type="number" name="cnpj" value="${objUsuario.industria.cnpj}" /> 
+				<label for="endereco">Endereço:</label> <input type="text" name="endereco" value="${objUsuario.industria.endereco}" />
+				<label for="txtTelefone">Telefone:</label> <input type="tel" name="txtTelefone" value="${objUsuario.industria.telefone}" />
+                </div>
+                
 				<label for="nome">Nome</label> <input type="text" name="nome" value="${objUsuario.nome}" />
 				<label for="login">Email:</label> <input type="text" name="login" value="${objUsuario.login}" />
 				<label for="senha">Senha:</label> <input type="password" name="senha" value="${objUsuario.senha}" /> 

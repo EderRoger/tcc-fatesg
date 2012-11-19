@@ -37,8 +37,8 @@
 				<div>
 					<input type="hidden" name="business" value="CategoriaAction" /> <input
 						type="hidden" name="acao" value="salvar" /> <input type="hidden"
-						name="id" value="${objCategoria.id}" /> <label for="descricao">Descrição:</label> <input type="text"
-						name="descricao" value="${objUsuario.descricao}" />
+						name="id" value="${objCategoriaResiduo.id}" /> <label for="descricao">Descrição:</label> <input type="text"
+						name="descricao" value="${objCategoriaResiduo.descricao}" />
 
 
 

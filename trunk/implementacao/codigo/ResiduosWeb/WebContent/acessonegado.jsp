@@ -4,7 +4,5 @@
 
     if (usuario == null) {
         response.sendRedirect("expira.jsp");
-    } else if (usuario.getTipoUsuario() == 1) {
-        response.sendRedirect("permissaonegada.jsp");
     }
 %>

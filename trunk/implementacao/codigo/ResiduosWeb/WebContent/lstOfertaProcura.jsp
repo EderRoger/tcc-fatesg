@@ -47,13 +47,15 @@
 				
 			<li data-role="list-divider">Procuras<span class="ui-li-count">Qtd:&nbsp;${qtdProcuras}</span></li>
 				<c:forEach items="${lstProcura}" var="item">
-					<li><a href="servletmain?business=OfertaProcuraAction&acao=editar&id=${item.id}">
+					<li>
+					<a href="servletmain?business=OfertaProcuraAction&acao=editar&id=${item.id}">
 							<p><h3>${item.residuo.descricao}  </h3></p>
 							<p>Industria: <strong>${item.industria.nome}</strong></p>
 							<p class="ui-li-aside">R$ <strong>${item.preco}</strong></p>
 							<span class="ui-li-count"> Qtd:&nbsp;${item.quantidade}</span>
 							<a href="servletmain?business=OfertaProcuraAction&acao=excluir&id=${item.id}"></a>
-					</a></li>
+					</a>
+					</li>
 				</c:forEach>
 				</li>
 				</ul>
