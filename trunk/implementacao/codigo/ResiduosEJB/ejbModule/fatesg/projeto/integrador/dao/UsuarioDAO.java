@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.Query;
 
 import fatesg.projeto.integrador.entidade.Industria;
-import fatesg.projeto.integrador.entidade.OfertaProcura;
 import fatesg.projeto.integrador.entidade.Usuario;
 
 
