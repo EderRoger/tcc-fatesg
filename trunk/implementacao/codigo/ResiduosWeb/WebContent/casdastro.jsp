@@ -28,21 +28,15 @@
 		</nav>
 		<section data-role="content">
 			<section data-role="content">
-			<a href="servletmain?business=CategoriaAction&acao=novo" data-role="button">Categoria</a>
+			<c:if test="${objUsuarioSS.tipoUsuario==0}">
+			<a href="servletmain?business=CategoriaAction&acao=listar" data-role="button">Categoria Resíduo</a>
+			</c:if>
 			<a href="servletmain?business=IndustriaAction&acao=novo" data-role="button">Industria</a>
 			<a href="servletmain?business=UsuarioAction&acao=novo" data-role="button">Usuario</a>
 			<a href="servletmain?business=ResiduoAction&acao=novo" data-role="button">Resíduo</a>
 			<a href="servletmain?business=OfertaProcuraAction&acao=novo" data-role="button">Oferta Procura</a>
 		</section>
-		<footer data-role="footer" data-position="fixed">
-			<nav data-role="navbar">
-				<ul>
-					<li><a href="#">Institucional</a></li>
-					<li><a href="#">Contato</a></li>
-					<li><a href="#">Ajuda</a></li>
-				</ul>
-			</nav>
-		</footer>
+		<%@include file="rodape.jsp" %>
 
 	</div>
 </body>
