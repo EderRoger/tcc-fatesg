@@ -30,68 +30,81 @@ import fatesg.projeto.integrador.entidade.Residuo;
 public class OfertaProcuraAction implements BusinessLogic {
 
 	AbstractDAO<OfertaProcura> abstractOfertaProcuraDao = lookupAbstractDaoLocal();
+	private final int VENDA = 1;
+	private final int COMPRA = 2;
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = request.getParameter("acao");
 
 		try {
 			if (acao.equals("novo")) {
 				request.setAttribute("objOfertaProcura", new OfertaProcura(0l));
-				request.setAttribute("lstResiduo",
-						abstractOfertaProcuraDao.listar("Residuo"));
-				
-				request.getRequestDispatcher("frmOfertaProcura.jsp")
-						.forward(request, response);
+				request.setAttribute("lstResiduo", abstractOfertaProcuraDao.listar("Residuo"));
+
+				request.getRequestDispatcher("frmOfertaProcura.jsp").forward(request, response);
 				return;
 			}
 			if (acao.equals("listar")) {
 				List<OfertaProcura> lstOfertas = abstractOfertaProcuraDao.obterOfertaProcura(1);
 				List<OfertaProcura> lstProcura = abstractOfertaProcuraDao.obterOfertaProcura(2);
 				request.setAttribute("lstOferta", lstOfertas);
-				request.setAttribute("qtdOfertas",lstOfertas.size());
+				request.setAttribute("qtdOfertas", lstOfertas.size());
 				request.setAttribute("lstProcura", lstProcura);
 				request.setAttribute("qtdProcuras", lstProcura.size());
-				request.getRequestDispatcher("lstOfertaProcura.jsp")
-						.forward(request, response);
+				request.getRequestDispatcher("lstOfertaProcura.jsp").forward(request, response);
 				return;
 			}
 			if (acao.equals("salvar")) {
 				save(request);
-				request.setAttribute("msg", "Operacao Realizada");
+				request.setAttribute("msg", "Operação realizada");
 				request.setAttribute("objOfertaProcura", new OfertaProcura());
 				List<OfertaProcura> lstOfertas = abstractOfertaProcuraDao.obterOfertaProcura(1);
 				List<OfertaProcura> lstProcura = abstractOfertaProcuraDao.obterOfertaProcura(2);
 				request.setAttribute("lstOferta", lstOfertas);
-				request.setAttribute("qtdOfertas",lstOfertas.size());
+				request.setAttribute("qtdOfertas", lstOfertas.size());
 				request.setAttribute("lstProcura", lstProcura);
 				request.setAttribute("qtdProcuras", lstProcura.size());
-				request.getRequestDispatcher("lstOfertaProcura.jsp")
-						.forward(request, response);
+
+				int operacao = Integer.parseInt(request.getParameter("operacao"));
+				long idDoResiduo = Long.parseLong(request.getParameter("id_residuo"));
+				Residuo residuo = lookupCategoriaLocal().obter(idDoResiduo, Residuo.class);
+				if (operacao == VENDA) {
+					for(OfertaProcura residuoProcurado : lstProcura){
+						if(residuoProcurado.getResiduo().getDescricao().equals(residuo.getDescricao())){
+							request.setAttribute("msg", "Existem procura(s) para o resíduo "+ residuo.getDescricao());
+							break;
+						}
+					}
+				}else{
+					for(OfertaProcura residuoOfertado : lstOfertas){
+						if(residuoOfertado.getResiduo().getDescricao().equals(residuo.getDescricao())){
+							request.setAttribute("msg", "Existem oferta(s) para o resíduo "+ residuo.getDescricao());
+							break;
+						}
+					}
+				}
+
+				request.getRequestDispatcher("lstOfertaProcura.jsp").forward(request, response);
 				return;
 			}
 			if (acao.equals("excluir")) {
 				Long id = Long.parseLong(request.getParameter("id"));
-				abstractOfertaProcuraDao.remover(abstractOfertaProcuraDao.obter(id,OfertaProcura.class));
+				abstractOfertaProcuraDao.remover(abstractOfertaProcuraDao.obter(id, OfertaProcura.class));
 				List<OfertaProcura> lstOfertas = abstractOfertaProcuraDao.obterOfertaProcura(1);
 				List<OfertaProcura> lstProcura = abstractOfertaProcuraDao.obterOfertaProcura(2);
 				request.setAttribute("lstOferta", lstOfertas);
-				request.setAttribute("qtdOfertas",lstOfertas.size());
+				request.setAttribute("qtdOfertas", lstOfertas.size());
 				request.setAttribute("lstProcura", lstProcura);
 				request.setAttribute("qtdProcuras", lstProcura.size());
-				request.getRequestDispatcher("lstOfertaProcura.jsp")
-						.forward(request, response);
+				request.getRequestDispatcher("lstOfertaProcura.jsp").forward(request, response);
 				return;
 			}
 			if (acao.equals("editar")) {
 				Long id = Long.parseLong(request.getParameter("id"));
-				request.setAttribute("objOfertaProcura",
-						abstractOfertaProcuraDao.obter(id,OfertaProcura.class));
-				request.setAttribute("lstResiduo",
-						abstractOfertaProcuraDao.listar("Residuo"));
-				request.getRequestDispatcher("frmOfertaProcura.jsp")
-						.forward(request, response);
+				request.setAttribute("objOfertaProcura", abstractOfertaProcuraDao.obter(id, OfertaProcura.class));
+				request.setAttribute("lstResiduo", abstractOfertaProcuraDao.listar("Residuo"));
+				request.getRequestDispatcher("frmOfertaProcura.jsp").forward(request, response);
 				return;
 			}
 		} catch (NumberFormatException e) {
@@ -104,18 +117,17 @@ public class OfertaProcuraAction implements BusinessLogic {
 	}
 
 	private void save(HttpServletRequest request) {
-		long idCategoria = Long.parseLong(request.getParameter("id_residuo"));
-		Residuo residuo = lookupCategoriaLocal().obter(idCategoria,Residuo.class);
-		
+		long idDoResiduo = Long.parseLong(request.getParameter("id_residuo"));
+		Residuo residuo = lookupCategoriaLocal().obter(idDoResiduo, Residuo.class);
+
 		long idIndustria = Long.parseLong(request.getParameter("id_industria"));
-		Industria industria = lookupIndustriaLocal().obter(idIndustria,Industria.class);
-		
-		OfertaProcura ofertaProcura = (OfertaProcura) PopulateObject.createObjectBusiness(
-				new OfertaProcura(), request);
-		
+		Industria industria = lookupIndustriaLocal().obter(idIndustria, Industria.class);
+
+		OfertaProcura ofertaProcura = (OfertaProcura) PopulateObject.createObjectBusiness(new OfertaProcura(), request);
+
 		ofertaProcura.setResiduo(residuo);
 		ofertaProcura.setIndustria(industria);
-		
+
 		try {
 
 			abstractOfertaProcuraDao.salvar(ofertaProcura);
@@ -133,12 +145,11 @@ public class OfertaProcuraAction implements BusinessLogic {
 			Context c = new InitialContext(p);
 			return (AbstractDAO<OfertaProcura>) c.lookup("dao/remote");
 		} catch (Exception ne) {
-			Logger.getLogger(getClass().getName()).log(Level.SEVERE,
-					"exception caught", ne);
+			Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
 			throw new RuntimeException(ne);
 		}
 	}
-	
+
 	@SuppressWarnings({ "unchecked" })
 	private AbstractDAO<Residuo> lookupCategoriaLocal() {
 		try {
@@ -147,12 +158,11 @@ public class OfertaProcuraAction implements BusinessLogic {
 			Context c = new InitialContext(p);
 			return (AbstractDAO<Residuo>) c.lookup("dao/remote");
 		} catch (Exception ne) {
-			Logger.getLogger(getClass().getName()).log(Level.SEVERE,
-					"exception caught", ne);
+			Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
 			throw new RuntimeException(ne);
 		}
 	}
-	
+
 	@SuppressWarnings({ "unchecked" })
 	private AbstractDAO<Industria> lookupIndustriaLocal() {
 		try {
@@ -161,8 +171,7 @@ public class OfertaProcuraAction implements BusinessLogic {
 			Context c = new InitialContext(p);
 			return (AbstractDAO<Industria>) c.lookup("dao/remote");
 		} catch (Exception ne) {
-			Logger.getLogger(getClass().getName()).log(Level.SEVERE,
-					"exception caught", ne);
+			Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
 			throw new RuntimeException(ne);
 		}
 	}

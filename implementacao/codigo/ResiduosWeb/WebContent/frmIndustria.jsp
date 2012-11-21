@@ -42,15 +42,7 @@
 				</div>
 			</form>
 		</section>
-		<footer data-role="footer" data-position="fixed">
-			<nav data-role="navbar">
-				<ul>
-					<li><a href="#">Institucional</a></li>
-					<li><a href="#">Contato</a></li>
-					<li><a href="#">Ajuda</a></li>
-				</ul>
-			</nav>
-		</footer>
+		<%@include file="rodape.jsp" %>
 
 	</div>
 </body>

@@ -19,19 +19,7 @@
 		<header data-role="header">
 			<h2>Cadastro de Categorias de Resíduo</h2>
 		</header>
-		<nav data-role="navbar">
-			<ul>
-				<li><a href="index.jsp" data-icon="home">Home</a></li>
-				<c:if test="${objUsuarioSS.tipoUsuario == 0}">
-					<li><a href="cadastros.jsp" data-icon="plus"
-						class="ui-btn-active ui-state-persist">Cadastros</a></li>
-				</c:if>
-				<li><a href="relatorios.jsp" data-icon="search">Consultas</a></li>
-				<li><a
-					href="servletmain?business=AutenticacaoAction&acao=logout"
-					data-icon="back">Logout</a></li>
-			</ul>
-		</nav>
+		<%@include file="menu.jsp" %>
 		<section data-role="content">
 			<form action="servletmain" name="frmCategoriaResiduo" method="post">
 				<div>
@@ -52,15 +40,7 @@
 				</div>
 			</form>
 		</section>
-		<footer data-role="footer" data-position="fixed">
-			<nav data-role="navbar">
-				<ul>
-					<li><a href="#">Institucional</a></li>
-					<li><a href="#">Contato</a></li>
-					<li><a href="#">Ajuda</a></li>
-				</ul>
-			</nav>
-		</footer>
+		<%@include file="rodape.jsp" %>
 
 	</div>
 </body>
