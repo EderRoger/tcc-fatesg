@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "categoria")
-public class Categoria implements Serializable {
+public class Categoria implements Serializable,Comparable<Categoria> {
 
 	private static final long serialVersionUID = -4754849063049090023L;
 	@Id
@@ -51,6 +51,11 @@ public class Categoria implements Serializable {
 	 */
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	@Override
+	public int compareTo(Categoria obj) {
+		return getDescricao().toUpperCase().compareTo(obj.getDescricao().toUpperCase());
 	}
 
 }
