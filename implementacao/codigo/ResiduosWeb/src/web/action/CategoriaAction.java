@@ -5,6 +5,9 @@
 package web.action;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,7 +42,15 @@ public class CategoriaAction implements BusinessLogic {
 				return;
 			}
 			if (acao.equals("listar")) {
-				request.setAttribute("lstCategoriaResiduos", abstractCategoriaDao.listar("Categoria"));
+				
+				List<Categoria> lista = abstractCategoriaDao.listar("Categoria");
+				Collections.sort(lista, new Comparator<Categoria>() {
+					@Override
+					public int compare(Categoria ob1, Categoria ob2) {
+						return ob1.getDescricao().toUpperCase().compareTo(ob2.getDescricao().toUpperCase());
+					}
+				});
+				request.setAttribute("lstCategoriaResiduos", lista);
 				request.getRequestDispatcher("lstCategoriaResiduos.jsp").forward(request, response);
 				return;
 			}

@@ -44,7 +44,9 @@
 				
 				<label for="tipoUsuario">Tipo</label> <select
 						name="tipoUsuario" id="nivel">
+						<c:if test="${objUsuarioSS.tipoUsuario==0}">
 						<option value="0" <c:if test="${objUsuario.tipoUsuario == 0}"> selected</c:if> >Administrador</option>
+						</c:if>
                     	<option value="1" <c:if test="${objUsuario.tipoUsuario == 1}"> selected</c:if> >Usuário</option>
 				</select>
 				<label for="status">Status</label> <select
