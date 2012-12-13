@@ -28,7 +28,7 @@
 		</nav>
 		<section data-role="content">
 		   <c:if test="${objUsuarioSS.tipoUsuario==0}">
-			<a href="servletmain?business=CategoriaAction&acao=listar" data-role="button">Categoria Resíduo</a>
+			<a href="servletmain?business=CategoriaAction&acao=novo" data-role="button">Categoria Resíduo</a>
 			</c:if>
 			<a href="servletmain?business=UsuarioAction&acao=novo" data-role="button">Usuario</a>
 			<a href="servletmain?business=ResiduoAction&acao=novo" data-role="button">Resíduo</a>
